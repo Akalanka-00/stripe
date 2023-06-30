@@ -6,7 +6,7 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 
-export default function CheckoutForm() {
+export default function CheckoutForm(props) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -60,7 +60,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000",
+        return_url: `http://localhost:3000/successpay?amount=${props.amount}&email=${email}`,
       },
     });
 
@@ -86,7 +86,7 @@ export default function CheckoutForm() {
     <form id="payment-form" onSubmit={handleSubmit}>
       <LinkAuthenticationElement
         id="link-authentication-element"
-      //  onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setEmail(e.value.email)}
       />
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">

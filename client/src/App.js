@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Homepage from "./components/Homepage";
-import Payment from "./components/Payment";
 import Refund from "./components/Refund";
 
 import "./styles/payment.css"
+import Homepage from "./page/Homepage";
+import PaymentSuccess from "./components/CardPayment/PaymentSuccess";
+import Payment from "./components/CardPayment/Payment";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
             <Route index element={<Homepage />} />
             <Route path="payment/" element={<Payment />} />
             <Route path="refund/" element={<Refund />} />
+            <Route path="successpay/" element={<PaymentSuccess />} />
 
           </Route>
         </Routes>
