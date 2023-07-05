@@ -9,7 +9,7 @@ const stripePromise = loadStripe("pk_test_51NLMMJGpJf2apzzuw4YIF6KDaCOyKvT8etJR6
 
 const Payment = () => {
     const [clientSecret, setClientSecret] = useState("");
-    const [ amount, setAmount] = useState(10000)
+    const [ amount, setAmount] = useState(10099)
 
     useEffect(() => {
       // Create PaymentIntent as soon as the page loads
